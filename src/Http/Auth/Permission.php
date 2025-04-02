@@ -108,6 +108,7 @@ class Permission
      */
     public static function isAdministrator()
     {
+        /** @var \Dcat\Admin\Models\Role $roleModel */
         $roleModel = config('admin.database.roles_model');
 
         return ! config('admin.permission.enable') || Admin::user()->isRole($roleModel::ADMINISTRATOR);

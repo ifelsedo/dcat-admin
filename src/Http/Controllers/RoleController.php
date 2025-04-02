@@ -66,6 +66,7 @@ class RoleController extends AdminController
             $show->field('created_at');
             $show->field('updated_at');
 
+            /** @var \Dcat\Admin\Models\Role $roleModel */
             $roleModel = config('admin.database.roles_model');
             if ($show->getKey() == $roleModel::ADMINISTRATOR_ID) {
                 $show->disableDeleteButton();
@@ -132,6 +133,7 @@ class RoleController extends AdminController
             $form->display('created_at', trans('admin.created_at'));
             $form->display('updated_at', trans('admin.updated_at'));
 
+            /** @var \Dcat\Admin\Models\Role $roleModel */
             $roleModel = config('admin.database.roles_model');
             if ($id == $roleModel::ADMINISTRATOR_ID) {
                 $form->disableDeleteButton();
@@ -144,6 +146,7 @@ class RoleController extends AdminController
 
     public function destroy($id)
     {
+        /** @var \Dcat\Admin\Models\Role $roleModel */
         $roleModel = config('admin.database.roles_model');
         if (in_array($roleModel::ADMINISTRATOR_ID, Helper::array($id))) {
             Permission::error();
