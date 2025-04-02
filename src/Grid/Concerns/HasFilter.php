@@ -48,10 +48,10 @@ trait HasFilter
     /**
      * Get or set the grid filter.
      *
-     * @param  Closure  $callback
+     * @param Closure|null $callback
      * @return $this|Grid\Filter
      */
-    public function filter(Closure $callback = null)
+    public function filter(?Closure $callback = null)
     {
         if ($callback === null) {
             return $this->filter;

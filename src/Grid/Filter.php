@@ -352,10 +352,10 @@ class Filter implements Renderable
     }
 
     /**
-     * @param  string|null  $mode
+     * @param string|null $mode
      * @return $this|string
      */
-    public function mode(string $mode = null)
+    public function mode(?string $mode = null)
     {
         if ($mode === null) {
             return $this->mode;
@@ -771,10 +771,10 @@ class Filter implements Renderable
      * Generate a filter object and add to grid.
      *
      * @param  string  $method
-     * @param  array  $arguments
+     * @param  array  $parameters
      * @return AbstractFilter|$this
      */
-    public function __call($method, $arguments)
+    public function __call($method, $parameters)
     {
         if (! empty(static::$supports[$method])) {
             $class = static::$supports[$method];
@@ -782,11 +782,11 @@ class Filter implements Renderable
                 throw new RuntimeException("The class [{$class}] must be a type of ".AbstractFilter::class.'.');
             }
 
-            return $this->addFilter(new $class(...$arguments));
+            return $this->addFilter(new $class(...$parameters));
         }
 
         if (isset(static::$defaultFilters[$method])) {
-            return $this->addFilter(new static::$defaultFilters[$method](...$arguments));
+            return $this->addFilter(new static::$defaultFilters[$method](...$parameters));
         }
 
         return $this;

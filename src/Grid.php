@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
 
+#[\AllowDynamicProperties]
 class Grid
 {
     use HasBuilderEvents;
@@ -35,7 +36,7 @@ class Grid
     use Concerns\CanFixColumns;
     use Concerns\CanHidesColumns;
     use Macroable {
-        __call as macroCall;
+        Macroable::__call as macroCall;
     }
 
     const CREATE_MODE_DEFAULT = 'default';
@@ -536,7 +537,7 @@ class Grid
      *
      * @return Collection|$this
      */
-    public function rows(\Closure $callback = null)
+    public function rows(?\Closure $callback = null)
     {
         if ($callback) {
             $this->rowsCallbacks[] = $callback;
@@ -1083,16 +1084,16 @@ JS
      * Dynamically add columns to the grid view.
      *
      * @param $method
-     * @param $arguments
+     * @param $parameters
      * @return Column
      */
-    public function __call($method, $arguments)
+    public function __call($method, $parameters)
     {
         if (static::hasMacro($method)) {
-            return $this->macroCall($method, $arguments);
+            return $this->macroCall($method, $parameters);
         }
 
-        return $this->addColumn($method, $arguments[0] ?? null);
+        return $this->addColumn($method, $parameters[0] ?? null);
     }
 
     public function __toString()

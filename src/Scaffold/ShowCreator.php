@@ -5,11 +5,11 @@ namespace Dcat\Admin\Scaffold;
 trait ShowCreator
 {
     /**
-     * @param  string  $primaryKey
+     * @param string|null $primaryKey
      * @param  array  $fields
      * @return string
      */
-    protected function generateShow(string $primaryKey = null, array $fields = [], $timestamps = null)
+    protected function generateShow(?string $primaryKey = null, array $fields = [], $timestamps = null)
     {
         $primaryKey = $primaryKey ?: request('primary_key', 'id');
         $fields = $fields ?: request('fields', []);

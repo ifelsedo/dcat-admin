@@ -50,10 +50,10 @@ trait HasFormResponse
      * 获取当前URL.
      *
      * @param  string|null  $default
-     * @param  Request|null  $request
+     * @param Request|null $request
      * @return string
      */
-    protected function getCurrentUrl($default = null, Request $request = null)
+    protected function getCurrentUrl($default = null, ?Request $request = null)
     {
         if ($this->currentUrl) {
             return admin_url($this->currentUrl);

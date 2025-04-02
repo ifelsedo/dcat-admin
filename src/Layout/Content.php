@@ -58,9 +58,9 @@ class Content implements Renderable
     /**
      * Content constructor.
      *
-     * @param  Closure|null  $callback
+     * @param Closure|null $callback
      */
-    public function __construct(\Closure $callback = null)
+    public function __construct(?\Closure $callback = null)
     {
         $this->callResolving();
 

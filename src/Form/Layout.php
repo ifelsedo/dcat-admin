@@ -129,10 +129,10 @@ class Layout
     }
 
     /**
-     * @param  \Closure|null  $callback
+     * @param \Closure|null $callback
      * @return BlockForm
      */
-    public function form(\Closure $callback = null)
+    public function form(?\Closure $callback = null)
     {
         $form = new Form\BlockForm($this->form);
 

@@ -283,9 +283,9 @@ class Form implements Renderable
      *
      * @param  Repository|Model|\Illuminate\Database\Eloquent\Builder|string  $model
      * @param  \Closure  $callback
-     * @param  Request  $request
+     * @param Request|null $request
      */
-    public function __construct($repository = null, ?Closure $callback = null, Request $request = null)
+    public function __construct($repository = null, ?Closure $callback = null, ?Request $request = null)
     {
         $this->repository = $repository ? Admin::repository($repository) : null;
         $this->callback = $callback;
@@ -733,10 +733,10 @@ class Form implements Renderable
     /**
      * Get or set data for insert or update.
      *
-     * @param  array  $updates
+     * @param array|null $updates
      * @return $this|array
      */
-    public function updates(array $updates = null)
+    public function updates(?array $updates = null)
     {
         if ($updates === null) {
             return $this->updates;
@@ -1692,10 +1692,10 @@ class Form implements Renderable
     }
 
     /**
-     * @param  Closure  $callback
+     * @param Closure|null $callback
      * @return bool|void
      */
-    public function inDialog(\Closure $callback = null)
+    public function inDialog(?\Closure $callback = null)
     {
         if (! $callback) {
             return DialogForm::is();
@@ -1797,19 +1797,19 @@ class Form implements Renderable
      * Generate a Field object and add to form builder if Field exists.
      *
      * @param  string  $method
-     * @param  array  $arguments
+     * @param  array  $parameters
      * @return Field
      */
-    public function __call($method, $arguments)
+    public function __call($method, $parameters)
     {
         if (static::hasMacro($method)) {
-            return $this->macroCall($method, $arguments);
+            return $this->macroCall($method, $parameters);
         }
 
         if ($className = static::findFieldClass($method)) {
-            $column = Arr::get($arguments, 0, '');
+            $column = Arr::get($parameters, 0, '');
 
-            $element = new $className($column, array_slice($arguments, 1));
+            $element = new $className($column, array_slice($parameters, 1));
 
             $this->pushField($element);
 

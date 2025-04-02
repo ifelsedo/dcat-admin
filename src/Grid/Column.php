@@ -269,7 +269,9 @@ class Column
     }
 
     /**
-     * @example
+     * @param  \Closure|null  $condition
+     * @return Column\Condition
+     *@example
      *     $grid->column('...')
      *         ->if(function ($column) {
      *             return $column->getValue() ? true : false;
@@ -294,13 +296,11 @@ class Column
      *         ->expand(...)
      *         ->else()
      *         ->display('')
-     *         ->end()
+          *         ->end()
      *         ->modal()
      *
-     * @param  \Closure  $condition
-     * @return Column\Condition
      */
-    public function if(\Closure $condition = null)
+    public function if(?\Closure $condition = null)
     {
         $condition = $condition ?: function ($column) {
             return $column->getValue();
@@ -772,18 +772,18 @@ class Column
      * Allow fluent calls on the Column object.
      *
      * @param  string  $method
-     * @param  array  $arguments
+     * @param  array  $parameters
      * @return $this
      */
-    public function __call($method, $arguments)
+    public function __call($method, $parameters)
     {
         if (
             ! isset(static::$displayers[$method])
             && static::hasMacro($method)
         ) {
-            return $this->__macroCall($method, $arguments);
+            return $this->__macroCall($method, $parameters);
         }
 
-        return $this->resolveDisplayer($method, $arguments);
+        return $this->resolveDisplayer($method, $parameters);
     }
 }

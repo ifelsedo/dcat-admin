@@ -38,10 +38,10 @@ class LazyTable extends Widget
     /**
      * LazyTable constructor.
      *
-     * @param  LazyRenderable  $renderable
+     * @param LazyRenderable|null $renderable
      * @param  bool  $load
      */
-    public function __construct(LazyRenderable $renderable = null, bool $load = true)
+    public function __construct(?LazyRenderable $renderable = null, bool $load = true)
     {
         $this->from($renderable);
         $this->load($load);
@@ -160,7 +160,7 @@ JS;
         ]);
 
         return <<<HTML
-<div {$this->formatHtmlAttributes()} style="min-height: 200px"></div>        
+<div {$this->formatHtmlAttributes()} style="min-height: 200px"></div>
 HTML;
     }
 }

@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * @property string $upload_column
  * @property UploadedFile $file
  */
+#[\AllowDynamicProperties]
 class WebUploader
 {
     const FILE_NAME = '_file_';
@@ -25,7 +26,7 @@ class WebUploader
 
     protected $completeFile;
 
-    public function __construct(Request $request = null)
+    public function __construct(?Request $request = null)
     {
         $request = $this->prepareRequest($request ?: request());
 

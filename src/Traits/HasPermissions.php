@@ -71,6 +71,7 @@ trait HasPermissions
      */
     public function isAdministrator(): bool
     {
+        /** @var \Dcat\Admin\Models\Role $roleModel */
         $roleModel = config('admin.database.roles_model');
 
         return $this->isRole($roleModel::ADMINISTRATOR);

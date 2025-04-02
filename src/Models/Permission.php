@@ -114,10 +114,10 @@ class Permission extends Model implements Sortable
     /**
      * Get options for Select field in form.
      *
-     * @param  \Closure|null  $closure
+     * @param \Closure|null $closure
      * @return array
      */
-    public static function selectOptions(\Closure $closure = null)
+    public static function selectOptions(?\Closure $closure = null)
     {
         $options = (new static())->withQuery($closure)->buildSelectOptions();
 

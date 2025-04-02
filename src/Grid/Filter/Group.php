@@ -31,9 +31,9 @@ class Group extends AbstractFilter
      *
      * @param  string  $column
      * @param  string  $label
-     * @param  \Closure|null  $builder
+     * @param \Closure|null $builder
      */
-    public function __construct($column, \Closure $builder = null, $label = '')
+    public function __construct($column, ?\Closure $builder = null, $label = '')
     {
         $this->builder = $builder;
         $this->column = $column;

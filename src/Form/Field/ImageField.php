@@ -93,11 +93,11 @@ trait ImageField
 
     /**
      * @param  string|array  $name
-     * @param  int  $width
-     * @param  int  $height
+     * @param int|null $width
+     * @param int|null $height
      * @return $this
      */
-    public function thumbnail($name, int $width = null, int $height = null)
+    public function thumbnail($name, ?int $width = null, ?int $height = null)
     {
         if (func_num_args() == 1 && is_array($name)) {
             foreach ($name as $key => $size) {

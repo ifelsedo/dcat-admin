@@ -330,10 +330,10 @@ class Show implements Renderable
     /**
      * Get fields or add multiple fields.
      *
-     * @param  array  $fields
+     * @param array|null $fields
      * @return $this|Collection
      */
-    public function fields(array $fields = null)
+    public function fields(?array $fields = null)
     {
         if ($fields === null) {
             return $this->fields;
@@ -597,16 +597,16 @@ class Show implements Renderable
      * Add field and relation dynamically.
      *
      * @param  string  $method
-     * @param  array  $arguments
+     * @param  array  $parameters
      * @return Field
      */
-    public function __call($method, $arguments = [])
+    public function __call($method, $parameters = [])
     {
         if (static::hasMacro($method)) {
-            return $this->macroCall($method, $arguments);
+            return $this->macroCall($method, $parameters);
         }
 
-        return $this->call($method, $arguments);
+        return $this->call($method, $parameters);
     }
 
     /**
