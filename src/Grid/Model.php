@@ -20,6 +20,7 @@ use Illuminate\Support\Str;
 /**
  * @mixin Builder
  */
+#[\AllowDynamicProperties]
 class Model
 {
     use Grid\Concerns\HasTree;

@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * @property string $upload_column
  * @property UploadedFile $file
  */
+#[\AllowDynamicProperties]
 class WebUploader
 {
     const FILE_NAME = '_file_';

@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\Macroable;
 
+#[\AllowDynamicProperties]
 class Grid
 {
     use HasBuilderEvents;

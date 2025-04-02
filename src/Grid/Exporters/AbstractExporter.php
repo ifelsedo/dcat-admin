@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
  * @method $this disableExportCurrentPage(bool $value = true)
  * @method $this disableExportSelectedRow(bool $value = true)
  */
+#[\AllowDynamicProperties]
 abstract class AbstractExporter implements ExporterInterface
 {
     /**
