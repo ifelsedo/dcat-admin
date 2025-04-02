@@ -19,10 +19,10 @@ trait HasComplexHeaders
      *
      * @param  string  $column
      * @param  array  $columnNames
-     * @param  string  $label
+     * @param string|null $label
      * @return ComplexHeader
      */
-    public function combine(string $column, array $columnNames, string $label = null)
+    public function combine(string $column, array $columnNames, ?string $label = null)
     {
         if (count($columnNames) < 2) {
             throw new InvalidArgumentException('Invalid column names.');

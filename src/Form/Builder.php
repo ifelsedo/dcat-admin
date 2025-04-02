@@ -214,10 +214,10 @@ class Builder implements FieldsCollection
     /**
      * Set the builder mode.
      *
-     * @param  string  $mode
+     * @param string|null $mode
      * @return void|string
      */
-    public function mode(string $mode = null)
+    public function mode(?string $mode = null)
     {
         if ($mode === null) {
             return $this->mode;

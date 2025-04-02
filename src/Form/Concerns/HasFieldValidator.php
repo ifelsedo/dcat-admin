@@ -446,10 +446,10 @@ trait HasFieldValidator
      * @see http://1000hz.github.io/bootstrap-validator/
      *
      * @param  string  $error
-     * @param  string  $key
+     * @param string|null $key
      * @return $this
      */
-    public function setClientValidationError(string $error, string $key = null)
+    public function setClientValidationError(string $error, ?string $key = null)
     {
         $key = $key ? "{$key}-" : '';
 

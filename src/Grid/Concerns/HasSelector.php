@@ -17,10 +17,10 @@ trait HasSelector
     protected $_selector;
 
     /**
-     * @param  \Closure  $closure
+     * @param \Closure|null $closure
      * @return $this|Selector
      */
-    public function selector(\Closure $closure = null)
+    public function selector(?\Closure $closure = null)
     {
         if ($closure === null) {
             return $this->_selector;

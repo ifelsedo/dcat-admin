@@ -330,10 +330,10 @@ class Show implements Renderable
     /**
      * Get fields or add multiple fields.
      *
-     * @param  array  $fields
+     * @param array|null $fields
      * @return $this|Collection
      */
-    public function fields(array $fields = null)
+    public function fields(?array $fields = null)
     {
         if ($fields === null) {
             return $this->fields;

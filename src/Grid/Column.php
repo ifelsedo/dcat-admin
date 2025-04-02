@@ -269,7 +269,9 @@ class Column
     }
 
     /**
-     * @example
+     * @param  \Closure|null  $condition
+     * @return Column\Condition
+     *@example
      *     $grid->column('...')
      *         ->if(function ($column) {
      *             return $column->getValue() ? true : false;
@@ -294,13 +296,11 @@ class Column
      *         ->expand(...)
      *         ->else()
      *         ->display('')
-     *         ->end()
+          *         ->end()
      *         ->modal()
      *
-     * @param  \Closure  $condition
-     * @return Column\Condition
      */
-    public function if(\Closure $condition = null)
+    public function if(?\Closure $condition = null)
     {
         $condition = $condition ?: function ($column) {
             return $column->getValue();

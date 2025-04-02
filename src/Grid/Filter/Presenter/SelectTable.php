@@ -115,10 +115,10 @@ class SelectTable extends Presenter
     }
 
     /**
-     * @param  string  $placeholder
+     * @param string|null $placeholder
      * @return $this|string
      */
-    public function placeholder(string $placeholder = null)
+    public function placeholder(?string $placeholder = null)
     {
         if ($placeholder === null) {
             return $this->placeholder ?: __('admin.choose');
@@ -173,7 +173,7 @@ class SelectTable extends Presenter
             <<<JS
 Dcat.init('#{$this->id}', function (self) {
     var dialogId = self.parent().find('{$this->dialog->getElementSelector()}').attr('id');
-    
+
     Dcat.grid.SelectTable({
         dialog: '[data-id="' + dialogId + '"]',
         container: '#{$this->id}',

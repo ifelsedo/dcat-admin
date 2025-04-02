@@ -537,7 +537,7 @@ class Grid
      *
      * @return Collection|$this
      */
-    public function rows(\Closure $callback = null)
+    public function rows(?\Closure $callback = null)
     {
         if ($callback) {
             $this->rowsCallbacks[] = $callback;

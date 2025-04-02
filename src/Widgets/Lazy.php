@@ -13,7 +13,7 @@ class Lazy extends Widget
     protected $target = 'lazy';
     protected $load = true;
 
-    public function __construct(LazyRenderable $renderable = null, bool $load = true)
+    public function __construct(?LazyRenderable $renderable = null, bool $load = true)
     {
         $this->setRenderable($renderable);
         $this->load($load);
@@ -46,7 +46,7 @@ Dcat.init('{$this->getElementSelector()}', function (target) {
     {$this->getRenderableScript()}
 
     body.html('<div style="min-height:150px"></div>').loading();
-    
+
     {$loader}
 });
 JS;
