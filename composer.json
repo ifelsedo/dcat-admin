@@ -8,11 +8,16 @@
         "admin",
         "grid",
         "form",
-        "laravel admin"
+        "laravel admin",
+        "dcat admin"
     ],
-    "homepage": "https://github.com/jqhph/dcat-admin",
+    "homepage": "https://github.com/PrintNow/dcat-admin",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Shine",
+            "email": "i@nowtime.cc"
+        },
         {
             "name": "jqh",
             "email": "841324345@qq.com"
