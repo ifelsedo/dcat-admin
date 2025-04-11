@@ -52,6 +52,11 @@ trait HasDisplayers
                 return $default;
             }
 
+            // 如果是枚举类型，则兼容处理
+            if ($value instanceof \BackedEnum) {
+                $value = $value->value;
+            }
+
             return Arr::get($values, $value, $default);
         });
     }
