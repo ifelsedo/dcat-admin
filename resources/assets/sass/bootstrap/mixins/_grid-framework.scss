@@ -12,12 +12,16 @@
     padding-left: $gutter / 2;
   }
 
+  // 定义包含小数的列宽数组
+  $column-widths: (1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12);
+
   @each $breakpoint in map-keys($breakpoints) {
     $infix: breakpoint-infix($breakpoint, $breakpoints);
 
     // Allow columns to stretch full width below their breakpoints
-    @for $i from 1 through $columns {
-      .col#{$infix}-#{$i} {
+    @each $width in $column-widths {
+      $width-class: str-replace(#{$width}, '.', '\\.');
+      .col#{$infix}-#{$width-class} {
         @extend %grid-column;
       }
     }
@@ -39,9 +43,10 @@
         max-width: 100%; // Reset earlier grid tiers
       }
 
-      @for $i from 1 through $columns {
-        .col#{$infix}-#{$i} {
-          @include make-col($i, $columns);
+      @each $width in $column-widths {
+        $width-class: str-replace(#{$width}, '.', '\\.');
+        .col#{$infix}-#{$width-class} {
+          @include make-col($width, $columns);
         }
       }
 

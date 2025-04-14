@@ -13,7 +13,7 @@ class Column
     protected $filters;
 
     /**
-     * @var int
+     * @var int|float 小数仅支持 .5 结尾，范围在 [1, 12]
      */
     protected $width;
 
@@ -51,7 +51,7 @@ class Column
     /**
      * Get or set column width.
      *
-     * @return int|void
+     * @return int|float|void
      */
     public function width($width = null)
     {

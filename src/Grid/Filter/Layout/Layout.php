@@ -49,7 +49,7 @@ class Layout
     /**
      * Add a new column in layout.
      *
-     * @param  int  $width
+     * @param  int|float  $width 小数仅支持 .5 结尾，范围在 [1, 12]
      * @param  \Closure  $closure
      */
     public function column($width, \Closure $closure)

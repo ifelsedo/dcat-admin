@@ -86,7 +86,7 @@ abstract class AbstractFilter
     protected $parent;
 
     /**
-     * @var int
+     * @var int|float 小数仅支持 .5 结尾，范围在 [1, 12]
      */
     protected $width = 10;
 
@@ -152,7 +152,7 @@ abstract class AbstractFilter
     /**
      * Set the column width.
      *
-     * @param  int|string  $width
+     * @param  int|float|string
      * @return $this
      */
     public function width($width)
