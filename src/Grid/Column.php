@@ -38,6 +38,7 @@ use Illuminate\Support\Traits\Macroable;
  * @method $this downloadable($server = '', $disk = null)
  * @method $this copyable()
  * @method $this viewable()
+ * @method $this highlightjs()
  * @method $this orderable()
  * @method $this limit(int $limit = 100, string $end = '...')
  * @method $this ascii()
@@ -92,6 +93,7 @@ class Column
         'downloadable'     => Displayers\Downloadable::class,
         'copyable'         => Displayers\Copyable::class,
         'viewable'         => Displayers\Viewable::class,
+        'highlightjs'      => Displayers\HighlightJS::class,
         'orderable'        => Displayers\Orderable::class,
         'limit'            => Displayers\Limit::class,
         'editable'         => Displayers\Input::class,
