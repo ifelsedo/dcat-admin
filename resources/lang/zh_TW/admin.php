@@ -220,6 +220,7 @@ return [
     'install_succeeded'         => '本地安裝',
     'invalid_extension_package' => '安裝包異常',
     'copied'                    => '已複製',
+    'click_to_view'             => '點擊查看',
     'auth_failed'               => '帳號或密碼錯誤',
     'validation'               => [
         'match'     => '與 :attribute 不匹配。',

@@ -219,6 +219,7 @@ return [
     'install_succeeded'         => 'Install succeeded !',
     'invalid_extension_package' => 'Invalid extension package !',
     'copied'                    => 'Copied',
+    'click_to_view'             => 'Click to view',
     'auth_failed'               => 'These credentials do not match our records.',
     'validation'               => [
         'match'     => 'The :attribute and :other must match.',
