@@ -1,21 +1,32 @@
 
 <div align="center">
-    <img src="https://cdn.learnku.com/uploads/images/202009/27/38389/WFQxJ7qZ1k.png!large" height="80"> 
+    <img src="resources/dist/images/logo-rectangle.png" height="80"> 
 </div>
 <br>
 
 <p align="center">
-    <a href="https://github.com/jqhph/dcat-admin/actions">
-        <img src="https://github.com/jqhph/dcat-admin/workflows/Laravel%20Dusk/badge.svg" alt="Build Status">
-    </a>
-    <a href="https://styleci.io/repos/182349597">
-        <img src="https://github.styleci.io/repos/182349597/shield" alt="StyleCI">
-    </a>
-    <a href="https://packagist.org/packages/dcat/laravel-admin" ><img src="https://poser.pugx.org/dcat/laravel-admin/v/stable" /></a> 
-    <a href="https://packagist.org/packages/dcat/laravel-admin"><img src="https://img.shields.io/packagist/dt/dcat/laravel-admin.svg?color=" /></a> 
-    <a><img src="https://img.shields.io/badge/php-7.1+-59a9f8.svg?style=flat" /></a> 
-    <a><img src="https://img.shields.io/badge/laravel-5.5+-59a9f8.svg?style=flat" ></a>
+    <a href="https://packagist.org/packages/printnow/laravel-admin" ><img src="https://poser.pugx.org/printnow/laravel-admin/v/stable" /></a> 
+    <a href="https://packagist.org/packages/printnow/laravel-admin"><img src="https://img.shields.io/packagist/dt/printnow/laravel-admin.svg?color=" /></a> 
+    <a><img src="https://img.shields.io/badge/php-8.1+-59a9f8.svg?style=flat" /></a> 
+    <a><img src="https://img.shields.io/badge/laravel-10+-59a9f8.svg?style=flat" ></a>
 </p>
+
+由于原项目([jqhph/dcat-admin](https://github.com/jqhph/dcat-admin))已停止维护，故基于原作者的项目进行二次开发，修复了部分问题，并添加了更多功能。
+
+新增功能如下：
+
+- 更多功能正在持续开发... 欢迎交流评论
+- [支持 Laravel 12](https://github.com/PrintNow/dcat-admin/tree/062601e6bca6ebc9c3bcc68dbb4c8ed3e1328275)
+- [最低 PHP 版本调整为 8.1，并支持 8.4](https://github.com/PrintNow/dcat-admin/tree/70886e3f950ff28e1fe0d104b88a254e58125178)
+- [优化对 https 站点支持](https://github.com/PrintNow/dcat-admin/tree/c1227a2593f05e5210dd79e5761ac8a6246c83b4)
+- [优化对枚举类型的支持](https://github.com/PrintNow/dcat-admin/tree/7e67e59e1e29302546b5967766e814724fe65e84)
+- [支持 `.5` 列宽展示，如 `col-sm-1.5` 等](https://github.com/PrintNow/dcat-admin/tree/87679261725e1b05c4f6f9e9039d3a6f2d29e604)
+- [新增 Viewable 类以支持点击眼睛图标展示隐藏值](https://github.com/PrintNow/dcat-admin/tree/c823a4ee04b808e4c12b7ee5468fecda855d0752)
+- [新增 highlightjs 类以支持代码块高亮显示](https://github.com/PrintNow/dcat-admin/tree/52050882eea475b9d3863ace98048404f7d320b7)
+
+
+---
+
 
 <p align=""><code>Dcat Admin</code>是一个基于<a href="https://www.laravel-admin.org/" target="_blank">laravel-admin</a>二次开发而成的后台系统构建工具，只需很少的代码即可快速构建出一个功能完善的高颜值后台系统。内置丰富的后台常用组件，开箱即用，让开发者告别冗杂的HTML代码，对后端开发者非常友好。</p>
 
@@ -91,7 +102,7 @@ DB_PASSWORD=
 ```
 cd {项目名称}
 
-composer require dcat/laravel-admin
+composer require printnow/laravel-admin
 ```
 
 然后运行下面的命令来发布资源：
