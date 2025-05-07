@@ -24,9 +24,17 @@
 - [新增 Viewable 类以支持点击眼睛图标展示隐藏值](https://github.com/PrintNow/dcat-admin/tree/c823a4ee04b808e4c12b7ee5468fecda855d0752)
 - [新增 highlightjs 类以支持代码块高亮显示](https://github.com/PrintNow/dcat-admin/tree/52050882eea475b9d3863ace98048404f7d320b7)
 
+> [!IMPORTANT]
+> 免责声明：
+> 尽管我已在**实际生产项目**中使用过该项目，但我无法保证所做的修改和调整绝对无误。因此，在将其应用于你的生产项目环境时，请务必保持谨慎，充分测试后再使用。
+> 
+> 安装方法：
+> `composer require printnow/laravel-admin:@dev`
 
 ---
 
+> [!NOTE]
+> 以下内容是原 repo README.md 介绍并作出了微调
 
 <p align=""><code>Dcat Admin</code>是一个基于<a href="https://www.laravel-admin.org/" target="_blank">laravel-admin</a>二次开发而成的后台系统构建工具，只需很少的代码即可快速构建出一个功能完善的高颜值后台系统。内置丰富的后台常用组件，开箱即用，让开发者告别冗杂的HTML代码，对后端开发者非常友好。</p>
 
