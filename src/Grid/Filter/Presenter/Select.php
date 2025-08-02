@@ -101,6 +101,18 @@ class Select extends Presenter
             $this->options = $this->options->toArray();
         }
 
+        $firstOption = $this->options[0] ?? null;
+        if ($firstOption instanceof \UnitEnum) {
+            // TODO 如果实现了 \JsonSerializable 接口，是否要取 jsonSerialize() 方法的值？
+
+            $isBackedEnum = $firstOption instanceof \BackedEnum;
+            $this->options = array_column(
+                array: $this->options,
+                column_key: 'name',
+                index_key: $isBackedEnum ? 'value' : 'name'
+            );
+        }
+
         $this->addDefaultConfig([
             'allowClear'  => true,
             'placeholder' => [
