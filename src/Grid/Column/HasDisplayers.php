@@ -120,7 +120,15 @@ trait HasDisplayers
     {
         return $this->display(function ($v, $column) use (&$val) {
             if ($val instanceof \Closure) {
-                $val = $val->call($this, $v, $column->getOriginal(), $column);
+                $original = $column->getOriginal();
+
+                if ($original instanceof \BackedEnum) {
+                    $original = $original->value;
+                }else if($original instanceof \UnitEnum){
+                    $original = $original->name;
+                }
+
+                $val = $val->call($this, $v, $original, $column);
             }
 
             if (is_array($v)) {
@@ -129,6 +137,18 @@ trait HasDisplayers
                 return $v;
             } elseif ($v instanceof Collection) {
                 return $v->prepend($val);
+            }
+
+            // 如果是枚举类型
+            if ($v instanceof \UnitEnum) {
+                // 如果实现了 JsonSerializable 接口，优先取此值
+                if ($v instanceof \JsonSerializable) {
+                    $v = (string)$v->jsonSerialize();
+                } else if ($v instanceof \StringBackedEnum) {
+                    $v = $v->value;
+                } else {
+                    $v = $v->name;
+                }
             }
 
             return $val.$v;
