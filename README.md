@@ -15,14 +15,17 @@
 
 新增功能如下：
 
-- 更多功能正在持续开发... 欢迎交流评论
-- [支持 Laravel 12](https://github.com/PrintNow/dcat-admin/tree/062601e6bca6ebc9c3bcc68dbb4c8ed3e1328275)
-- [最低 PHP 版本调整为 8.1，并支持 8.4](https://github.com/PrintNow/dcat-admin/tree/70886e3f950ff28e1fe0d104b88a254e58125178)
-- [优化对 https 站点支持](https://github.com/PrintNow/dcat-admin/tree/c1227a2593f05e5210dd79e5761ac8a6246c83b4)
-- [优化对枚举类型的支持](https://github.com/PrintNow/dcat-admin/tree/7e67e59e1e29302546b5967766e814724fe65e84)
-- [支持 `.5` 列宽展示，如 `col-sm-1.5` 等](https://github.com/PrintNow/dcat-admin/tree/87679261725e1b05c4f6f9e9039d3a6f2d29e604)
-- [新增 Viewable 类以支持点击眼睛图标展示隐藏值](https://github.com/PrintNow/dcat-admin/tree/c823a4ee04b808e4c12b7ee5468fecda855d0752)
-- [新增 highlightjs 类以支持代码块高亮显示](https://github.com/PrintNow/dcat-admin/tree/52050882eea475b9d3863ace98048404f7d320b7)
+> 更多功能正在持续开发... 欢迎交流评论
+
+- [2025/08/05 增强对枚举字段的渲染支持](https://github.com/PrintNow/dcat-admin/pull/5)
+- [@deflinhec : 修正 Grid 以 LazyRenderable 呈現時Group Filter 沒有正確篩選](https://github.com/PrintNow/dcat-admin/commit/4390a8f494c20910828e7c93513d13032f0d01dd)
+- [新增 highlightjs 类以支持代码块高亮显示](https://github.com/PrintNow/dcat-admin/commit/52050882eea475b9d3863ace98048404f7d320b7)
+- [新增 Viewable 类以支持点击眼睛图标展示隐藏值](https://github.com/PrintNow/dcat-admin/commit/c823a4ee04b808e4c12b7ee5468fecda855d0752)
+- [支持 `.5` 列宽展示，如 `col-sm-1.5` 等](https://github.com/PrintNow/dcat-admin/commit/87679261725e1b05c4f6f9e9039d3a6f2d29e604)
+- [优化对枚举类型的支持](https://github.com/PrintNow/dcat-admin/commit/7e67e59e1e29302546b5967766e814724fe65e84)
+- [优化对 https 站点支持](https://github.com/PrintNow/dcat-admin/commit/c1227a2593f05e5210dd79e5761ac8a6246c83b4)
+- [最低 PHP 版本调整为 8.1，并支持 8.4](https://github.com/PrintNow/dcat-admin/commit/70886e3f950ff28e1fe0d104b88a254e58125178)
+- [支持 Laravel 12](https://github.com/PrintNow/dcat-admin/commit/062601e6bca6ebc9c3bcc68dbb4c8ed3e1328275)
 
 > [!IMPORTANT]
 > 免责声明：
