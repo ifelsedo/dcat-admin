@@ -1,5 +1,5 @@
 {
-    "name": "printnow/laravel-admin",
+    "name": "ifelsedo/dcat-admin",
     "description": "Dcat admin 永久分叉版 / 支持 Laravel 12, PHP 版本限制 >= 8.1（支持 PHP 8.4）",
     "type": "library",
     "keywords": [
@@ -11,7 +11,7 @@
         "laravel admin",
         "dcat admin"
     ],
-    "homepage": "https://github.com/PrintNow/dcat-admin",
+    "homepage": "https://github.com/ifelsedo/dcat-admin",
     "license": "MIT",
     "authors": [
         {
