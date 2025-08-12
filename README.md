@@ -1,13 +1,13 @@
 
 <div align="center">
-    <img src="resources/dist/images/logo-rectangle.png" height="80"> 
+    <img src="resources/dist/images/logo-rectangle.png" height="80">
 </div>
 <br>
 
 <p align="center">
-    <a href="https://packagist.org/packages/printnow/laravel-admin" ><img src="https://poser.pugx.org/printnow/laravel-admin/v/stable" /></a> 
-    <a href="https://packagist.org/packages/printnow/laravel-admin"><img src="https://img.shields.io/packagist/dt/printnow/laravel-admin.svg?color=" /></a> 
-    <a><img src="https://img.shields.io/badge/php-8.1+-59a9f8.svg?style=flat" /></a> 
+    <a href="https://packagist.org/packages/printnow/laravel-admin" ><img src="https://poser.pugx.org/printnow/laravel-admin/v/stable" /></a>
+    <a href="https://packagist.org/packages/printnow/laravel-admin"><img src="https://img.shields.io/packagist/dt/printnow/laravel-admin.svg?color=" /></a>
+    <a><img src="https://img.shields.io/badge/php-8.1+-59a9f8.svg?style=flat" /></a>
     <a><img src="https://img.shields.io/badge/laravel-10+-59a9f8.svg?style=flat" ></a>
 </p>
 
@@ -30,9 +30,9 @@
 > [!IMPORTANT]
 > 免责声明：
 > 尽管我已在**实际生产项目**中使用过该项目，但我无法保证所做的修改和调整绝对无误。因此，在将其应用于你的生产项目环境时，请务必保持谨慎，充分测试后再使用。
-> 
+>
 > 安装方法：
-> `composer require printnow/laravel-admin:@dev`
+> `composer require ifelsedo/dcat-admin:@dev`
 
 ---
 
