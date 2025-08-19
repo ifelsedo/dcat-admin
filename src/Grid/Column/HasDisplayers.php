@@ -57,7 +57,7 @@ trait HasDisplayers
                 $value = $value->value;
             }
 
-            return Arr::get($values, $value, $default);
+            return Arr::get($values, $value, $default ?? $value);
         });
     }
 
