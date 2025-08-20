@@ -144,7 +144,7 @@ trait HasDisplayers
                 // 如果实现了 JsonSerializable 接口，优先取此值
                 if ($v instanceof \JsonSerializable) {
                     $v = (string)$v->jsonSerialize();
-                } else if ($v instanceof \StringBackedEnum) {
+                } else if ($v instanceof \BackedEnum) {
                     $v = $v->value;
                 } else {
                     $v = $v->name;
