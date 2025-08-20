@@ -12,7 +12,7 @@
         data-refresh="{{ $refresh }}"
     >
         <span class="ie-display">
-            {{ $display }}
+            {!! $display !!}
             @if(! $display)
                 <i class="feather icon-edit-2"></i>
             @endif
@@ -128,7 +128,7 @@
                 break;
             case 'radio':
                 val = $popover.find('.ie-input:checked').val();
-                label = $popover.find('.ie-input:checked').parent().text();
+                label = $popover.find('.ie-input:checked').parent().children().last().html();
                 break;
         }
 
@@ -163,7 +163,7 @@
             if (res.status === true) {
                 Dcat.success(data.message);
                 var $display = $popover.data('display');
-                $display.text(label);
+                $display.html(label);
                 if (! label) {
                     $display.html('<i class="feather icon-edit-2"></i>');
                 }
