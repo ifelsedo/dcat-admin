@@ -14,24 +14,14 @@
 </div>
 
 <script require="@moment,@bootstrap-datetimepicker">
+    // options 参考 https://getdatepicker.com/4/Options/#usecurrent
+    // useCurrent: false/true/minute/hour/day/month/year
+    // minDate 最小时间
+    // maxDate 最大时间
     var options = {!! admin_javascript_json($dateOptions) !!};
 
-    $('#{{ $id['start'] }}').datetimepicker($.extend(options, {
-        useCurrent: false}));
+    $('#{{ $id['start'] }}').datetimepicker(options);
     $('#{{ $id['end'] }}').datetimepicker($.extend(options, {useCurrent: false}));
-
-    // 添加点击事件监听器，自动填充当天 0 点 0 分 0 秒
-    $('#{{ $id['start'] }}').on('focus', function() {
-        var $this = $(this);
-        // 检查输入框是否为空
-        if (!$this.val()) {
-            // 获取当天 0 点 0 分 0 秒的时间
-            var startOfDay = moment().startOf('day');
-            // 设置到 datetimepicker
-            $this.data('DateTimePicker').date(startOfDay);
-        }
-    });
-
     $("#{{ $id['start'] }}").on("dp.change", function (e) {
         $('#{{ $id['end'] }}').data("DateTimePicker").minDate(e.date);
     });
