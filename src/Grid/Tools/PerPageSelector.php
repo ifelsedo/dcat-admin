@@ -70,7 +70,7 @@ class PerPageSelector implements Renderable
      *
      * @return string
      */
-    public function render()
+    public function render($direction = 'up')
     {
         Admin::script($this->script());
 
@@ -81,7 +81,7 @@ class PerPageSelector implements Renderable
         })->toArray();
 
         $dropdown = Dropdown::make($options)
-            ->up()
+            ->direction($direction)
             ->button($this->perPage)
             ->render();
 

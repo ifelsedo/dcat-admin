@@ -26,6 +26,13 @@ trait HasPaginator
     protected $perPage = 20;
 
     /**
+     * If this grid use pagination.
+     *
+     * @var bool
+     */
+    protected $paginationPos = 'bottom';
+
+    /**
      * Paginate the grid.
      *
      * @param  int  $perPage
@@ -152,8 +159,79 @@ trait HasPaginator
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View|string
      */
-    public function renderPagination()
+    public function renderPagination($pos = 'bottom')
     {
+        $this->paginationPos = $pos;
         return view('admin::grid.table-pagination', ['grid' => $this]);
+    }
+
+    /**
+     * Disable grid pagination.
+     *
+     * @return $this
+     */
+    public function showTopPagination(bool $val = true)
+    {
+        return $this->option('pagination_top', $val);
+    }
+
+    /**
+     * Disable grid pagination.
+     *
+     * @return $this
+     */
+    public function disableTopPagination(bool $disable = true)
+    {
+        return $this->option('pagination_top', ! $disable);
+    }
+
+    /**
+     * If this grid use top pagination.
+     *
+     * @return bool
+     */
+    public function allowTopPagination()
+    {
+        return $this->options['pagination_top'];
+    }
+
+    /**
+     * Disable grid pagination.
+     *
+     * @return $this
+     */
+    public function showBottomPagination(bool $val = true)
+    {
+        return $this->option('pagination_bottom', $val);
+    }
+
+    /**
+     * Disable grid pagination.
+     *
+     * @return $this
+     */
+    public function disableBottomPagination(bool $disable = true)
+    {
+        return $this->option('pagination_bottom', ! $disable);
+    }
+
+    /**
+     * If this grid use bottom pagination.
+     *
+     * @return bool
+     */
+    public function allowBottomPagination()
+    {
+        return $this->options['pagination_bottom'];
+    }
+
+    /**
+     * Get per-page options.
+     *
+     * @return string
+     */
+    public function getPaginationPos()
+    {
+        return $this->paginationPos;
     }
 }

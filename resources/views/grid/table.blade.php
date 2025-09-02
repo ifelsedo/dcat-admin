@@ -1,3 +1,8 @@
+<style>
+    .border-bottom-dark {
+        border-bottom: 1px solid #dee2e6;
+    }
+</style>
 
 <div class="dcat-box">
 
@@ -10,6 +15,13 @@
     {!! $grid->renderHeader() !!}
 
     <div class="{!! $grid->formatTableParentClass() !!}">
+
+        @if ($grid->allowTopPagination())
+        <div class="border-bottom-dark">
+        {!! $grid->renderPagination('top') !!}
+        </div>
+        @endif
+
         <table class="{{ $grid->formatTableClass() }}" id="{{ $tableId }}" >
             <thead>
             @if ($headers = $grid->getVisibleComplexHeaders())
@@ -47,10 +59,15 @@
             @endif
             </tbody>
         </table>
+
+        @if ($grid->allowBottomPagination())
+        {!! $grid->renderPagination('bottom') !!}
+        @endif
+
     </div>
 
     {!! $grid->renderFooter() !!}
 
-    {!! $grid->renderPagination() !!}
+
 
 </div>

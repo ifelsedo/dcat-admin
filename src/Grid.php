@@ -173,6 +173,8 @@ class Grid
         'actions_class'       => null,
         'batch_actions_class' => null,
         'paginator_class'     => null,
+        'pagination_top'      => false,
+        'pagination_bottom'   => true,
     ];
 
     /**

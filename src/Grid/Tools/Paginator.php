@@ -66,7 +66,8 @@ class Paginator implements Renderable
             return;
         }
 
-        return (new PerPageSelector($this->grid))->render();
+        $direction = $this->grid->getPaginationPos() == 'bottom' ? 'up' : 'down';
+        return (new PerPageSelector($this->grid))->render($direction);
     }
 
     /**
