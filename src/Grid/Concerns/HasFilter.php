@@ -89,6 +89,19 @@ trait HasFilter
     }
 
     /**
+     * 是否需要查询条件
+     *
+     * @param  bool  $value
+     * @return $this
+     */
+    public function requireQueryCriteria()
+    {
+        $this->filter->requireQueryCriteria();
+
+        return $this;
+    }
+
+    /**
      * Disable grid filter.
      *
      * @return $this

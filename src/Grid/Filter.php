@@ -197,6 +197,12 @@ class Filter implements Renderable
     protected $inputs;
 
     /**
+     * 是否需要查询条件
+     * @var bool
+     */
+    protected $requireQueryCriteria = false;
+
+    /**
      * @var string
      */
     protected $mode = self::MODE_RIGHT_SIDE;
@@ -635,6 +641,28 @@ class Filter implements Renderable
             $this->getScopeConditions()
         );
 
+        // 检查是否启用了必须查询条件功能，并且没有任何查询条件
+        if ($this->requireQueryCriteria) {
+            // 检查主过滤器条件
+            $hasFilterConditions = !empty($conditions);
+
+            // 检查模型中是否有非排序的查询条件（快捷查询、列过滤等）
+            $nonSortQueries = $this->model->getQueries()->reject(function ($query) {
+                // 排除排序相关的查询方法
+                return in_array($query['method'], [
+                    'orderBy', 'orderByDesc', 'orderByRaw',
+                    'latest', 'oldest', 'inRandomOrder'
+                ]);
+            });
+
+            $hasModelQueries = $nonSortQueries->count() > 0;
+
+            // 如果没有任何查询条件，添加 where 0=1 来阻止返回数据
+            if (!$hasFilterConditions && !$hasModelQueries) {
+                $conditions[] = ['whereRaw' => ['0=1']];
+            }
+        }
+
         $this->model->addConditions($conditions);
 
         $this->grid()->fireOnce(new Fetching());
@@ -690,6 +718,19 @@ class Filter implements Renderable
     public function view(string $view)
     {
         $this->view = $view;
+
+        return $this;
+    }
+
+    /**
+     * 是否需要查询条件
+     *
+     * @param  bool  $value
+     * @return $this
+     */
+    public function requireQueryCriteria(bool $value = true)
+    {
+        $this->requireQueryCriteria = $value;
 
         return $this;
     }
