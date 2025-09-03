@@ -722,7 +722,7 @@ body.dark-mode {
       color: lighten($body-dark-font-color, 5%);
     }
   }
-  
+
   // ----- apexcharts
   .apexcharts-legend-series {
     .apexcharts-legend-text {
@@ -880,11 +880,12 @@ body.dark-mode {
     .nav-treeview > .nav-item > .nav-link.active:hover,
     .nav-treeview > .nav-item > .nav-link.active:focus {
       background: $body-darker-color;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
     }
 
-    .nav-treeview.nav .nav-item .nav-link.active {
-      padding: 10px 10px 10px 25px !important;
-    }
+    // .nav-treeview.nav .nav-item .nav-link.active {
+    //   padding: 10px 10px 10px 25px !important;
+    // }
   }
 
   .main-menu .navbar-header .navbar-brand {
