@@ -86,16 +86,16 @@ body.sidebar-collapse {
 
 [class*=sidebar-dark-] {
   .navbar-header {
-    padding: 0 1rem 0;
-    height: 61px;
+    // padding: 0 1rem 0;
+    // height: 61px;
     //background: $body-darker-color;
     background: #262d37
     //background: #313a46;
   }
 
-  .navbar-header .navbar-brand {
-    margin: 8px 0;
-  }
+  // .navbar-header .navbar-brand {
+  //   margin: 8px 0;
+  // }
 }
 
 [class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link.active, [class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link.active:hover {

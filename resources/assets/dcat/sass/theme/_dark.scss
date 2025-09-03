@@ -880,7 +880,7 @@ body.dark-mode {
     .nav-treeview > .nav-item > .nav-link.active:hover,
     .nav-treeview > .nav-item > .nav-link.active:focus {
       background: $body-darker-color;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.3);
     }
 
     // .nav-treeview.nav .nav-item .nav-link.active {
@@ -888,13 +888,13 @@ body.dark-mode {
     // }
   }
 
-  .main-menu .navbar-header .navbar-brand {
-    margin-top: .5rem;
-  }
+  // .main-menu .navbar-header .navbar-brand {
+  //   margin-top: .5rem;
+  // }
 }
 
-body.dark-mode:not(.sidebar-separate) {
-  .main-sidebar .sidebar {
-    margin-top: 1rem
-  }
-}
+// body.dark-mode:not(.sidebar-separate) {
+//   .main-sidebar .sidebar {
+//     margin-top: 1rem
+//   }
+// }
