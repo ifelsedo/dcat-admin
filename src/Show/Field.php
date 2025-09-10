@@ -409,9 +409,8 @@ HTML;
         return $this->unescape()->as(function ($value) use ($field) {
             $content = is_string($value) ? json_decode($value, true) : $value;
             if (is_array($content)) {
-                array_walk($content, function (&$v, $k) {
-                    $v = htmlspecialchars($v);
-                });
+                // 递归处理数组中的所有字符串
+                escapeArrayValues($content);
             } else {
                 $content = htmlspecialchars($content);
             }

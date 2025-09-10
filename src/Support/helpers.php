@@ -593,3 +593,16 @@ if (! function_exists('format_byte')) {
         return round($value, $dec).$prefix_arr[$i];
     }
 }
+
+
+if (! function_exists('escapeArrayValues')) {
+    function escapeArrayValues(&$array) {
+        foreach ($array as &$value) {
+            if (is_array($value)) {
+                escapeArrayValues($value);
+            } elseif (is_string($value)) {
+                $value = htmlspecialchars($value);
+            }
+        }
+    }
+}
