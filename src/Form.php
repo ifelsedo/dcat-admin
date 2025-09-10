@@ -144,7 +144,6 @@ class Form implements Renderable
         'slider'              => Field\Slider::class,
         'switch'              => Field\SwitchField::class,
         'text'                => Field\Text::class,
-        'text2'               => Field\Text2::class,
         'textarea'            => Field\Textarea::class,
         'time'                => Field\Time::class,
         'timeRange'           => Field\TimeRange::class,
