@@ -83,18 +83,14 @@
 
 
 ### 环境
- - PHP >= 7.1.0
- - Laravel 5.5.0 ~ 9.*
+ - PHP >= 8.4.0
+ - Laravel >= 12.0
  - Fileinfo PHP Extension
 
 ### 安装
 
-首先需要安装`laravel`框架，如已安装可以跳过此步骤。如果您是第一次使用`laravel`，请务必先阅读文档 [安装 《Laravel中文文档》](https://learnku.com/docs/laravel/8.x/installation/9354) ！
-```bash
-composer create-project --prefer-dist laravel/laravel 项目名称 9.*
-# 或
-composer create-project --prefer-dist laravel/laravel 项目名称
-```
+首先需要安装`laravel`框架，如已安装可以跳过此步骤。如果您是第一次使用`laravel`，请务必先阅读文档 [安装 《Laravel中文文档》](https://learnku.com/docs/laravel/12.x/installation/16934) ！
+
 
 安装完`laravel`之后需要修改`.env`文件，设置数据库连接设置正确
 
@@ -113,7 +109,7 @@ DB_PASSWORD=
 ```
 cd {项目名称}
 
-composer require printnow/laravel-admin
+composer require ifelsedo/dcat-admin
 ```
 
 然后运行下面的命令来发布资源：
