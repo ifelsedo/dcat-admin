@@ -65,6 +65,7 @@ return [
     'remove'                => '移除',
     'edit'                  => '編輯',
     'quick_edit'            => '快速編輯',
+    'quick_show'            => '快速查看',
     'continue_editing'      => '繼續編輯',
     'continue_creating'     => '繼續新增',
     'view'                  => '查看',

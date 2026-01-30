@@ -158,6 +158,7 @@ class Grid
         'filter'              => true,
         'actions'             => true,
         'quick_edit_button'   => false,
+        'quick_show_button'   => true,
         'edit_button'         => true,
         'view_button'         => true,
         'delete_button'       => true,
@@ -168,6 +169,7 @@ class Grid
         'toolbar'             => true,
         'create_mode'         => self::CREATE_MODE_DEFAULT,
         'dialog_form_area'    => ['700px', '670px'],
+        'dialog_show_area'    => ['700px', '670px'],
         'table_class'         => ['table', 'custom-data-table', 'data-table'],
         'scrollbar_x'         => false,
         'actions_class'       => null,
@@ -845,6 +847,23 @@ HTML;
     public function enableDialogCreate()
     {
         return $this->createMode(self::CREATE_MODE_DIALOG);
+    }
+
+    /**
+     * @param  string  $mode
+     * @return $this
+     */
+    public function viewMode(string $mode)
+    {
+        return $this->option('view_mode', $mode);
+    }
+
+    /**
+     * @return $this
+     */
+    public function enableDialogView()
+    {
+        return $this->viewMode(self::CREATE_MODE_DIALOG);
     }
 
     /**

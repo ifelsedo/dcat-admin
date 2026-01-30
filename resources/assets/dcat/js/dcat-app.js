@@ -18,6 +18,7 @@ import RowSelector from './extensions/RowSelector'
 import Grid from './extensions/Grid'
 import Form from './extensions/Form'
 import DialogForm from './extensions/DialogForm'
+import DialogShow from './extensions/DialogShow'
 import Loading from './extensions/Loading'
 import AssetsLoader from './extensions/AssetsLoader'
 import Slider from './extensions/Slider'
@@ -70,6 +71,11 @@ function extend (Dcat) {
     // 弹窗表单
     Dcat.DialogForm = function (options) {
         return new DialogForm(Dcat, options);
+    };
+
+    // 弹窗详情
+    Dcat.DialogShow = function (options) {
+        return new DialogShow(Dcat, options);
     };
 
     // 滑动面板

@@ -178,6 +178,7 @@ return [
             'view' => Dcat\Admin\Grid\Actions\Show::class,
             'edit' => Dcat\Admin\Grid\Actions\Edit::class,
             'quick_edit' => Dcat\Admin\Grid\Actions\QuickEdit::class,
+            'quick_show' => Dcat\Admin\Grid\Actions\QuickShow::class,
             'delete' => Dcat\Admin\Grid\Actions\Delete::class,
             'batch_delete' => Dcat\Admin\Grid\Tools\BatchDelete::class,
         ],

@@ -14,6 +14,7 @@ use Dcat\Admin\Show\Relation;
 use Dcat\Admin\Show\Row;
 use Dcat\Admin\Show\Tools;
 use Dcat\Admin\Traits\HasBuilderEvents;
+use Dcat\Admin\Widgets\DialogShow;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\Support\Renderable;
@@ -94,6 +95,11 @@ class Show implements Renderable
     protected $rows;
 
     /**
+     * @var int
+     */
+    protected $columnsPerRow = 1;
+
+    /**
      * Show constructor.
      *
      * @param  mixed  $id  $id
@@ -122,6 +128,7 @@ class Show implements Renderable
         $this->initPanel();
         $this->initContents();
 
+        $this->prepareDialogShow();
         $this->callResolving();
     }
 
@@ -276,6 +283,16 @@ class Show implements Renderable
     protected function initPanel()
     {
         $this->panel = new Panel($this);
+    }
+
+    /**
+     * @return $this
+     */
+    protected function prepareDialogShow()
+    {
+        DialogShow::prepare($this);
+
+        return $this;
     }
 
     /**
@@ -699,6 +716,29 @@ class Show implements Renderable
     }
 
     /**
+     * Set columns per row.
+     *
+     * @param  int  $columns
+     * @return $this
+     */
+    public function setColumnsPerRow(int $columns)
+    {
+        $this->columnsPerRow = $columns;
+
+        return $this;
+    }
+
+    /**
+     * Get columns per row.
+     *
+     * @return int
+     */
+    public function getColumnsPerRow()
+    {
+        return $this->columnsPerRow;
+    }
+
+    /**
      * Add a model field to show.
      *
      * @param  string  $name
@@ -707,5 +747,51 @@ class Show implements Renderable
     public function __get($name)
     {
         return $this->call($name);
+    }
+
+    public static function dialog(?string $title = null)
+    {
+        return new \Dcat\Admin\Widgets\DialogShow($title);
+    }
+
+    /**
+     * @param Closure|null $callback
+     * @return bool|void
+     */
+    public function inDialog(?\Closure $callback = null)
+    {
+        if (! $callback) {
+            return DialogShow::is();
+        }
+
+        if (DialogShow::is()) {
+            $callback($this);
+        }
+    }
+
+    /**
+     * Disable panel header.
+     *
+     * @param  bool  $disable
+     * @return $this
+     */
+    public function disableHeader(bool $disable = true)
+    {
+        $this->panel()->disableHeader($disable);
+
+        return $this;
+    }
+
+    /**
+     * Disable panel footer.
+     *
+     * @param  bool  $disable
+     * @return $this
+     */
+    public function disableFooter(bool $disable = true)
+    {
+        $this->panel()->disableFooter($disable);
+
+        return $this;
     }
 }

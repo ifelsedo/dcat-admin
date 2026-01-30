@@ -69,6 +69,7 @@ return [
     'remove'                => 'Remove',
     'edit'                  => 'Edit',
     'quick_edit'            => 'Quick Edit',
+    'quick_show'            => 'Quick Show',
     'view'                  => 'View',
     'continue_editing'      => 'Continue editing',
     'continue_creating'     => 'Continue creating',

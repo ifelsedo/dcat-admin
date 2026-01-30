@@ -58,6 +58,9 @@ class Panel implements Renderable
             'rows'   => $this->parent->rows(),
             'style'  => 'default',
             'title'  => trans('admin.detail'),
+            'disableHeader' => false,
+            'disableFooter' => false,
+            'columnsPerRow' => $this->parent->getColumnsPerRow(),
         ];
     }
 
@@ -95,6 +98,32 @@ class Panel implements Renderable
     public function style($style = 'info')
     {
         $this->variables['style'] = $style;
+
+        return $this;
+    }
+
+    /**
+     * Disable panel header.
+     *
+     * @param  bool  $disable
+     * @return $this
+     */
+    public function disableHeader(bool $disable = true)
+    {
+        $this->variables['disableHeader'] = $disable;
+
+        return $this;
+    }
+
+    /**
+     * Disable panel footer.
+     *
+     * @param  bool  $disable
+     * @return $this
+     */
+    public function disableFooter(bool $disable = true)
+    {
+        $this->variables['disableFooter'] = $disable;
 
         return $this;
     }
@@ -180,6 +209,8 @@ class Panel implements Renderable
     public function fill($fields)
     {
         $this->variables['fields'] = $fields;
+        // 重新从 Show 获取 columnsPerRow（builder 执行后可能已更新）
+        $this->variables['columnsPerRow'] = $this->parent->getColumnsPerRow();
 
         return $this;
     }

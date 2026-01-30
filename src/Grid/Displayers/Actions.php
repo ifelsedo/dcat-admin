@@ -6,6 +6,7 @@ use Dcat\Admin\Actions\Action;
 use Dcat\Admin\Grid\Actions\Delete;
 use Dcat\Admin\Grid\Actions\Edit;
 use Dcat\Admin\Grid\Actions\QuickEdit;
+use Dcat\Admin\Grid\Actions\QuickShow;
 use Dcat\Admin\Grid\Actions\Show;
 use Dcat\Admin\Grid\RowAction;
 use Dcat\Admin\Support\Helper;
@@ -33,10 +34,11 @@ class Actions extends AbstractDisplayer
      * @var array
      */
     protected $actions = [
-        'view'      => true,
-        'edit'      => true,
+        'view' => true,
+        'quickShow' => false,
+        'edit' => true,
         'quickEdit' => false,
-        'delete'    => true,
+        'delete' => true,
     ];
 
     /**
@@ -97,7 +99,6 @@ class Actions extends AbstractDisplayer
     /**
      * Disable view action.
      *
-     * @param  bool  $disable
      * @return $this
      */
     public function disableView(bool $disable = true)
@@ -113,7 +114,6 @@ class Actions extends AbstractDisplayer
     /**
      * Disable delete.
      *
-     * @param  bool  $disable
      * @return $this.
      */
     public function disableDelete(bool $disable = true)
@@ -129,7 +129,6 @@ class Actions extends AbstractDisplayer
     /**
      * Disable edit.
      *
-     * @param  bool  $disable
      * @return $this.
      */
     public function disableEdit(bool $disable = true)
@@ -145,7 +144,6 @@ class Actions extends AbstractDisplayer
     /**
      * Disable quick edit.
      *
-     * @param  bool  $disable
      * @return $this.
      */
     public function disableQuickEdit(bool $disable = true)
@@ -153,8 +151,22 @@ class Actions extends AbstractDisplayer
         return $this->setAction('quickEdit', ! $disable);
     }
 
+    public function quickShow(bool $value = true)
+    {
+        return $this->setAction('quickShow', $value);
+    }
+
     /**
-     * @param  string  $key
+     * Disable quick show.
+     *
+     * @return $this.
+     */
+    public function disableQuickShow(bool $disable = true)
+    {
+        return $this->setAction('quickShow', ! $disable);
+    }
+
+    /**
      * @param  bool  $disable
      * @return $this
      */
@@ -168,7 +180,6 @@ class Actions extends AbstractDisplayer
     /**
      * Set resource of current resource.
      *
-     * @param $resource
      * @return $this
      */
     public function setResource($resource)
@@ -196,11 +207,11 @@ class Actions extends AbstractDisplayer
         $this->view($this->grid->option('view_button'));
         $this->edit($this->grid->option('edit_button'));
         $this->quickEdit($this->grid->option('quick_edit_button'));
+        $this->quickShow($this->grid->option('quick_show_button'));
         $this->delete($this->grid->option('delete_button'));
     }
 
     /**
-     * @param  array  $callbacks
      * @return void
      */
     protected function call(array $callbacks = [])
@@ -301,6 +312,29 @@ class Actions extends AbstractDisplayer
         $label = trans('admin.quick_edit');
 
         return "<i title='{$label}' class=\"feather icon-edit grid-action-icon\"></i> &nbsp;";
+    }
+
+    /**
+     * Render quick show action.
+     *
+     * @return string
+     */
+    protected function renderQuickShow()
+    {
+        $action = config('admin.grid.actions.quick_show') ?: QuickShow::class;
+        $action = $action::make($this->getQuickShowLabel());
+
+        return $this->prepareAction($action);
+    }
+
+    /**
+     * @return string
+     */
+    protected function getQuickShowLabel()
+    {
+        $label = trans('admin.quick_show');
+
+        return "<i title='{$label}' class=\"feather icon-eye grid-action-icon\"></i> {$label} &nbsp;";
     }
 
     /**

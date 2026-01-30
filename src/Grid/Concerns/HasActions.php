@@ -157,6 +157,28 @@ trait HasActions
     }
 
     /**
+     * Disable quick show button.
+     *
+     * @return $this.
+     */
+    public function disableQuickShowButton(bool $disable = true)
+    {
+        $this->options['quick_show_button'] = ! $disable;
+
+        return $this;
+    }
+
+    /**
+     * Show quick show button.
+     *
+     * @return $this.
+     */
+    public function showQuickShowButton(bool $val = true)
+    {
+        return $this->disableQuickShowButton(! $val);
+    }
+
+    /**
      * Disable view action.
      *
      * @param  bool  $disable
