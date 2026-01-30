@@ -160,7 +160,7 @@ class Grid
         'quick_edit_button'   => false,
         'quick_show_button'   => true,
         'edit_button'         => true,
-        'view_button'         => true,
+        'view_button'         => false,
         'delete_button'       => true,
         'row_selector'        => true,
         'create_button'       => true,
