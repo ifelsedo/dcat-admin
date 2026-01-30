@@ -34,8 +34,8 @@ class Actions extends AbstractDisplayer
      * @var array
      */
     protected $actions = [
-        'view' => true,
-        'quickShow' => false,
+        'view' => false,
+        'quickShow' => true,
         'edit' => true,
         'quickEdit' => false,
         'delete' => true,
@@ -334,7 +334,7 @@ class Actions extends AbstractDisplayer
     {
         $label = trans('admin.quick_show');
 
-        return "<i title='{$label}' class=\"feather icon-eye grid-action-icon\"></i> {$label} &nbsp;";
+        return "<i title='{$label}' class=\"feather icon-search grid-action-icon\"></i> {$label} &nbsp;";
     }
 
     /**
