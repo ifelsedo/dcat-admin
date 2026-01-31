@@ -94,4 +94,8 @@ class DropdownActions extends Actions
     protected function getDeleteLabel()
     {
     }
+    
+    protected function getQuickShowLabel()
+    {
+    }
 }

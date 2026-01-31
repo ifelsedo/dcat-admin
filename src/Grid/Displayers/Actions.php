@@ -334,7 +334,7 @@ class Actions extends AbstractDisplayer
     {
         $label = trans('admin.quick_show');
 
-        return "<i title='{$label}' class=\"feather icon-search grid-action-icon\"></i> {$label} &nbsp;";
+        return "<i title='{$label}' class=\"feather icon-search grid-action-icon\"></i> &nbsp;";
     }
 
     /**
