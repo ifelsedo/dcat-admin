@@ -815,6 +815,8 @@ class Helper
         $relColumn = array_pop($column);
 
         // 增加对whereHasIn的支持
+        // 如果存在WhereHasInServiceProvider类，则使用whereHasIn方法，否则使用whereHas方法
+        // 安装 composer require dcat/laravel-wherehasin
         $method = class_exists(WhereHasInServiceProvider::class) ? 'whereHasIn' : 'whereHas';
 
         $model->$method(implode('.', $column), function ($relation) use ($relColumn, $params, $query) {

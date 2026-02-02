@@ -582,6 +582,8 @@ abstract class AbstractFilter
         $relColumn = is_callable($relColumn) ? $relColumn : $col;
 
         // 增加对whereHasIn的支持
+        // 如果存在WhereHasInServiceProvider类，则使用whereHasIn方法，否则使用whereHas方法
+        // 安装 composer require dcat/laravel-wherehasin
         $method = class_exists(WhereHasInServiceProvider::class) ? 'whereHasIn' : 'whereHas';
 
         return [$method => [implode('.', $column), function ($q) use ($relColumn, $params) {
