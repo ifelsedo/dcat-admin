@@ -61,6 +61,39 @@ abstract class Presenter
     }
 
     /**
+     * @param  int  $width
+     * @return $this
+     */
+    public function sm($width)
+    {
+        $this->filter->sm($width);
+
+        return $this;
+    }
+
+    /**
+     * @param  int  $width
+     * @return $this
+     */
+    public function md($width)
+    {
+        $this->filter->md($width);
+
+        return $this;
+    }
+
+    /**
+     * @param  int  $width
+     * @return $this
+     */
+    public function lg($width)
+    {
+        $this->filter->lg($width);
+
+        return $this;
+    }
+
+    /**
      * 忽略筛选项.
      *
      * @return $this

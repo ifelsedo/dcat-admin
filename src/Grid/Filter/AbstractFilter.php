@@ -93,6 +93,15 @@ abstract class AbstractFilter
     /**
      * @var string
      */
+    protected $widthClass;
+
+    protected $colSm = 0;
+    protected $colMd = 0;
+    protected $colLg = 0;
+
+    /**
+     * @var string
+     */
     protected $style;
 
     /**
@@ -160,11 +169,76 @@ abstract class AbstractFilter
         if (is_numeric($width)) {
             $this->width = $width;
         } else {
-            $this->style = "width:$width;padding-left:10px;padding-right:10px";
-            $this->width = ' ';
+            $this->widthClass = $width;
         }
 
         return $this;
+    }
+
+    /**
+     * Set the column width.
+     *
+     * @param  int|float|string
+     * @return $this
+     */
+    public function sm($width)
+    {
+        $this->colSm = $width;
+
+        return $this;
+    }
+
+    /**
+     * Set the column width.
+     *
+     * @param  int|float|string
+     * @return $this
+     */
+    public function md($width)
+    {
+        $this->colMd = $width;
+
+        return $this;
+    }
+
+    /**
+     * Set the column width.
+     *
+     * @param  int|float|string
+     * @return $this
+     */
+    public function lg($width)
+    {
+        $this->colLg = $width;
+
+        return $this;
+    }
+
+    /**
+     * Get the column class for width.
+     *
+     * @return string
+     */
+    public function getWidthClass()
+    {
+        if (!$this->widthClass) {
+            $cols = [];
+            if ($this->colLg) {
+                $cols[] = 'col-lg-'.$this->colLg;
+            }
+            if ($this->colMd) {
+                $cols[] = 'col-md-'.$this->colMd;
+            }
+            if ($this->colSm) {
+                $cols[] = 'col-sm-'.$this->colSm;
+            }
+            if (count($cols) > 0) {
+                $this->widthClass = implode(' ', $cols);
+            } else {
+                $this->widthClass = 'col-md-'.$this->width.' col-sm-'.min($this->width * 2, 12);
+            }
+        }
+        return $this->widthClass;
     }
 
     /**
@@ -213,7 +287,7 @@ abstract class AbstractFilter
             return $columns;
         }
 
-        return $this->parent->grid()->makeName('filter-column-'.str_replace('.', '-', $columns));
+        return $this->parent->grid()->makeName('filter-column-' . str_replace('.', '-', $columns));
     }
 
     /**
@@ -587,7 +661,7 @@ abstract class AbstractFilter
         $method = class_exists(WhereHasInServiceProvider::class) ? 'whereHasIn' : 'whereHas';
 
         return [$method => [implode('.', $column), function ($q) use ($relColumn, $params) {
-            $relColumn = is_string($relColumn) ? $q->getModel()->getTable().'.'.$relColumn : $relColumn;
+            $relColumn = is_string($relColumn) ? $q->getModel()->getTable() . '.' . $relColumn : $relColumn;
             array_unshift($params, $relColumn);
 
             call_user_func_array([$q, $this->query], $params);
@@ -606,7 +680,7 @@ abstract class AbstractFilter
             'name'  => $this->formatName($this->column),
             'label' => $this->label,
             'value' => $this->normalizeValue(),
-            'width' => $this->width,
+            'width' => $this->getWidthClass(),
             'style' => $this->style,
         ], $this->presenter()->variables());
     }
@@ -670,7 +744,9 @@ abstract class AbstractFilter
         }
 
         throw new RuntimeException(sprintf(
-            'Call to undefined method %s::%s()', static::class, $method
+            'Call to undefined method %s::%s()',
+            static::class,
+            $method
         ));
     }
 }

@@ -1,4 +1,4 @@
-<div class="filter-input col-sm-{{ $width }}"  style="{!! $style !!}">
+<div class="filter-input {{ $width }}"  style="{!! $style !!}">
     <div class="form-group">
         <div class="input-group input-group-sm">
 
