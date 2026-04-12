@@ -7,6 +7,8 @@ use Dcat\Admin\Exception\RuntimeException;
 use Dcat\Admin\Grid\Filter;
 use Dcat\Admin\Grid\Filter\Presenter\Checkbox;
 use Dcat\Admin\Grid\Filter\Presenter\DateTime;
+use Dcat\Admin\Grid\Filter\Presenter\DropdownCheckbox;
+use Dcat\Admin\Grid\Filter\Presenter\DropdownRadio;
 use Dcat\Admin\Grid\Filter\Presenter\MultipleSelect;
 use Dcat\Admin\Grid\Filter\Presenter\Presenter;
 use Dcat\Admin\Grid\Filter\Presenter\Radio;
@@ -434,6 +436,24 @@ abstract class AbstractFilter
     public function checkbox($options = [])
     {
         return $this->setPresenter(new Checkbox($options));
+    }
+
+    /**
+     * @param  array  $options
+     * @return In
+     */
+    public function radio2($options = [], $itemsPerRow = 1)
+    {
+        return $this->setPresenter(new DropdownRadio($options, $itemsPerRow));
+    }
+
+    /**
+     * @param  array  $options
+     * @return In
+     */
+    public function checkbox2($options = [], $itemsPerRow = 1)
+    {
+        return $this->setPresenter(new DropdownCheckbox($options, $itemsPerRow));
     }
 
     /**
