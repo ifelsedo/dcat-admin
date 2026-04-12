@@ -1,4 +1,3 @@
-
 <div align="center">
     <img src="resources/dist/images/logo-rectangle.png" height="80">
 </div>
@@ -18,7 +17,7 @@
 > 更多功能正在持续开发... 欢迎交流评论
 
 - [2025/08/05 增强对枚举字段的渲染支持](https://github.com/PrintNow/dcat-admin/pull/5)
-- [@deflinhec : 修正 Grid 以 LazyRenderable 呈現時Group Filter 沒有正確篩選](https://github.com/PrintNow/dcat-admin/commit/4390a8f494c20910828e7c93513d13032f0d01dd)
+- [@deflinhec : 修正 Grid 以 LazyRenderable 呈現時 Group Filter 沒有正確篩選](https://github.com/PrintNow/dcat-admin/commit/4390a8f494c20910828e7c93513d13032f0d01dd)
 - [新增 highlightjs 类以支持代码块高亮显示](https://github.com/PrintNow/dcat-admin/commit/52050882eea475b9d3863ace98048404f7d320b7)
 - [新增 Viewable 类以支持点击眼睛图标展示隐藏值](https://github.com/PrintNow/dcat-admin/commit/c823a4ee04b808e4c12b7ee5468fecda855d0752)
 - [支持 `.5` 列宽展示，如 `col-sm-1.5` 等](https://github.com/PrintNow/dcat-admin/commit/87679261725e1b05c4f6f9e9039d3a6f2d29e604)
@@ -41,26 +40,23 @@
 
 <p align=""><code>Dcat Admin</code>是一个基于<a href="https://www.laravel-admin.org/" target="_blank">laravel-admin</a>二次开发而成的后台系统构建工具，只需很少的代码即可快速构建出一个功能完善的高颜值后台系统。内置丰富的后台常用组件，开箱即用，让开发者告别冗杂的HTML代码，对后端开发者非常友好。</p>
 
-
 - [官方网站](http://www.dcatadmin.com)
 - [中文文档](https://learnku.com/docs/dcat-admin)
 - [English documentions](http://www.dcatadmin.com/docs/en-2.x/quick-start.html)
 - [Demo / 在线演示](http://103.39.211.179:8080/admin)
-- [Demo源码](https://github.com/jqhph/dcat-admin-demo)
-- [Demo源码 (码云)](https://gitee.com/jqhph/dcat-admin-demo)
+- [Demo 源码](https://github.com/jqhph/dcat-admin-demo)
+- [Demo 源码 (码云)](https://gitee.com/jqhph/dcat-admin-demo)
 - [扩展](#)
-
 
 ![](https://cdn.learnku.com/uploads/images/202101/28/38389/YLmL7PLqH7.png!large)
 
-
 ### 功能特性
 
-- [x] 简洁优雅、灵活可扩展的API
+- [x] 简洁优雅、灵活可扩展的 API
 - [x] 用户管理
-- [x] RBAC权限管理，支持无限极权限节点
+- [x] RBAC 权限管理，支持无限极权限节点
 - [x] 菜单管理
-- [x] 使用pjax构建无刷新页面，支持**按需加载**静态资源，可以无限扩展组件而不影响整体性能
+- [x] 使用 pjax 构建无刷新页面，支持**按需加载**静态资源，可以无限扩展组件而不影响整体性能
 - [x] 松耦合的页面构建与数据操作设计，可轻松切换数据源
 - [x] 自定义页面
 - [x] 自定义主题配色
@@ -75,22 +71,21 @@
 - [x] 弹窗表单构建工具
 - [x] 数据详情页构建工具
 - [x] 无限层级树状页面构建工具，支持用拖拽的方式实现数据的层级、排序等操作
-- [x] 内置丰富的常用页面组件（如图表、数据统计卡片、下拉菜单、Tab卡片、提示工具等）
+- [x] 内置丰富的常用页面组件（如图表、数据统计卡片、下拉菜单、Tab 卡片、提示工具等）
 - [x] `Section`功能（类似`Wordpress`的`Filter`和`blade`模板的`section`标签）
 - [x] 异步文件上传表单，支持分块多线程上传
 - [x] 多应用
 - [ ] 插件市场，只需在管理页面轻轻点击鼠标即可完成插件的安装、更新和卸载等操作
 
-
 ### 环境
- - PHP >= 8.4.0
- - Laravel >= 12.0
- - Fileinfo PHP Extension
+
+- PHP >= 8.4.0
+- Laravel >= 12.0
+- Fileinfo PHP Extension
 
 ### 安装
 
-首先需要安装`laravel`框架，如已安装可以跳过此步骤。如果您是第一次使用`laravel`，请务必先阅读文档 [安装 《Laravel中文文档》](https://learnku.com/docs/laravel/12.x/installation/16934) ！
-
+首先需要安装`laravel`框架，如已安装可以跳过此步骤。如果您是第一次使用`laravel`，请务必先阅读文档 [安装 《Laravel 中文文档》](https://learnku.com/docs/laravel/12.x/installation/16934) ！
 
 安装完`laravel`之后需要修改`.env`文件，设置数据库连接设置正确
 
@@ -104,7 +99,6 @@ DB_PASSWORD=
 ```
 
 安装`dcat-admin`
-
 
 ```
 cd {项目名称}
@@ -129,6 +123,7 @@ php artisan admin:install
 ```
 
 上述步骤操作完成之后就可以配置`web`服务了，**注意需要把`web`目录指向`public`目录**！如果用的是`nginx`，还需要在配置中加上伪静态配置
+
 ```dotenv
 location / {
 	try_files $uri $uri/ /index.php?$query_string;
@@ -137,42 +132,52 @@ location / {
 
 启动服务后，在浏览器打开 `http://localhost/admin`，使用用户名 `admin` 和密码 `admin`登陆。
 
+### 主题编译
+
+修改 resources/assets/dcat/sass/theme/\_primary.scss 内主题颜色，然后编译
+
+```
+npm run prod
+cp resources/dist/adminlte/adminlte.css resources/dist/adminlte/adminlte-green.css
+cp resources/dist/dcat/css/dcat-app.css resources/dist/dcat/css/dcat-app-green.css
+```
 
 <a name="extensions"></a>
+
 ### 扩展
 
-| 扩展                                        | 描述                              | dcat-admin 版本                             |
-| ------------------------------------------------ | ---------------------------------------- |---------------------------------------- |
-| [mosiboom/dcat-iframe-tab](https://github.com/mosiboom/dcat-iframe-tab)    | IFRAME TAB标签切换 | 2.x |
-| [super-eggs/dcat-distpicker](https://github.com/super-eggs/dcat-distpicker)    | 省市区联动 | 2.x |
-| [ueditor](https://github.com/jqhph/dcat-admin-ueditor) | 百度在线编辑器     | 1.x |
-| [grid-sortable](https://github.com/jqhph/dcat-admin-grid-sortable) | 表格拖曳排序工具      | 1.x |
-
+| 扩展                                                                        | 描述                | dcat-admin 版本 |
+| --------------------------------------------------------------------------- | ------------------- | --------------- |
+| [mosiboom/dcat-iframe-tab](https://github.com/mosiboom/dcat-iframe-tab)     | IFRAME TAB 标签切换 | 2.x             |
+| [super-eggs/dcat-distpicker](https://github.com/super-eggs/dcat-distpicker) | 省市区联动          | 2.x             |
+| [ueditor](https://github.com/jqhph/dcat-admin-ueditor)                      | 百度在线编辑器      | 1.x             |
+| [grid-sortable](https://github.com/jqhph/dcat-admin-grid-sortable)          | 表格拖曳排序工具    | 1.x             |
 
 ### 鸣谢
+
 `Dcat Admin` 基于以下组件:
 
-+ [Laravel](https://laravel.com/)
-+ [Laravel Admin](https://www.laravel-admin.org/)
-+ [AdminLTE3](https://github.com/ColorlibHQ/AdminLTE)
-+ [bootstrap4](https://getbootstrap.com/)
-+ [jQuery3](https://jquery.com/)
-+ [Eonasdan Datetimepicker](https://github.com/Eonasdan/bootstrap-datetimepicker/)
-+ [font-awesome](http://fontawesome.io)
-+ [jquery-form](https://github.com/jquery-form/form)
-+ [moment](http://momentjs.com/)
-+ [webuploader](http://fex.baidu.com/webuploader/)
-+ [jquery-pjax](https://github.com/defunkt/jquery-pjax)
-+ [Nestable](http://dbushell.github.io/Nestable/)
-+ [toastr](http://codeseven.github.io/toastr/)
-+ [editor-md](https://github.com/pandao/editor.md)
-+ [fontawesome-iconpicker](https://github.com/itsjavi/fontawesome-iconpicker)
-+ [layer弹出层](http://layer.layui.com/)
-+ [char.js](https://www.chartjs.org)
-+ [nprogress](https://ricostacruz.com/nprogress/)
-+ [bootstrap-validator](https://github.com/1000hz/bootstrap-validator)
-+ [Google map](https://www.google.com/maps)
-+ [Tencent map](http://lbs.qq.com/)
+- [Laravel](https://laravel.com/)
+- [Laravel Admin](https://www.laravel-admin.org/)
+- [AdminLTE3](https://github.com/ColorlibHQ/AdminLTE)
+- [bootstrap4](https://getbootstrap.com/)
+- [jQuery3](https://jquery.com/)
+- [Eonasdan Datetimepicker](https://github.com/Eonasdan/bootstrap-datetimepicker/)
+- [font-awesome](http://fontawesome.io)
+- [jquery-form](https://github.com/jquery-form/form)
+- [moment](http://momentjs.com/)
+- [webuploader](http://fex.baidu.com/webuploader/)
+- [jquery-pjax](https://github.com/defunkt/jquery-pjax)
+- [Nestable](http://dbushell.github.io/Nestable/)
+- [toastr](http://codeseven.github.io/toastr/)
+- [editor-md](https://github.com/pandao/editor.md)
+- [fontawesome-iconpicker](https://github.com/itsjavi/fontawesome-iconpicker)
+- [layer 弹出层](http://layer.layui.com/)
+- [char.js](https://www.chartjs.org)
+- [nprogress](https://ricostacruz.com/nprogress/)
+- [bootstrap-validator](https://github.com/1000hz/bootstrap-validator)
+- [Google map](https://www.google.com/maps)
+- [Tencent map](http://lbs.qq.com/)
 
 ### Contributors
 
@@ -205,5 +210,7 @@ Support this project with your organization. Your logo will show up here with a 
 <a href="https://opencollective.com/dcat-admin/organization/9/website"><img src="https://opencollective.com/dcat-admin/organization/9/avatar.svg"></a>
 
 ### License
-------------
+
+---
+
 `dcat-admin` is licensed under [The MIT License (MIT)](LICENSE).
