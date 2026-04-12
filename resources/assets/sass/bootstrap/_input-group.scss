@@ -156,9 +156,13 @@
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-append > .btn {
   padding: $input-padding-y-sm $input-padding-x-sm;
-  @include font-size($input-font-size-sm);
+  @include font-size($input-font-size * 0.85);
   line-height: $input-line-height-sm;
   @include border-radius($input-border-radius-sm);
+}
+
+.input-group-sm > .input-group-prepend > .input-group-text {
+  @include font-size($input-font-size * 0.8);
 }
 
 .input-group-lg > .custom-select,

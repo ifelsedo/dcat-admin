@@ -54,7 +54,7 @@ trait HasFieldValidator
      * @param  array  $messages
      * @return $this
      */
-    public function updateRules($rules = null, $messages = [])
+    public function updateRules(mixed $rules = null, array $messages = [])
     {
         $this->updateRules = $this->mergeRules($rules, $this->updateRules);
 
@@ -72,7 +72,7 @@ trait HasFieldValidator
      * @param  array  $messages
      * @return $this
      */
-    public function creationRules($rules = null, $messages = [])
+    public function creationRules(mixed $rules = null, array $messages = [])
     {
         $this->creationRules = $this->mergeRules($rules, $this->creationRules);
 
@@ -86,11 +86,11 @@ trait HasFieldValidator
     /**
      * Get or set rules.
      *
-     * @param  null  $rules
+     * @param  mixed  $rules
      * @param  array  $messages
      * @return $this
      */
-    public function rules($rules = null, $messages = [])
+    public function rules(mixed $rules = null, array $messages = [])
     {
         if ($rules instanceof \Closure) {
             $this->rules = $rules;
@@ -114,7 +114,7 @@ trait HasFieldValidator
     /**
      * Get field validation rules.
      *
-     * @return string
+     * @return array
      */
     protected function getRules()
     {
