@@ -4,7 +4,7 @@
 .dropdown-selector-placeholder {
     color: #999;
     font-size: .7rem;
-    line-height: 30px !important;
+    line-height: 1;
     white-space: nowrap;
 }
 
@@ -60,20 +60,23 @@
 .dropdown-selector-rendered {
     padding: 0 .4rem !important;
     list-style: none;
-    margin: -3px 0 -.35rem;
+    margin: 0;
     overflow: hidden;
     white-space: nowrap;
-    line-height: 30px !important;
+    line-height: 1;
     height: auto;
     flex: 1 1 auto;
     min-width: 0;
+    display: flex;
+    align-items: center;
 }
 
 .dropdown-selector-choice {
     border-radius: 4px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     margin-left: 5px;
-    margin-top: 5px;
+    margin-top: 0;
     padding: 2px 5px !important;
     border: 0 !important;
     font-size: 90%;
