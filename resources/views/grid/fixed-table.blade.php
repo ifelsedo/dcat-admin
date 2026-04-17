@@ -5,6 +5,10 @@
 
     {!! $grid->renderHeader() !!}
 
+    @if ($grid->allowTopPagination())
+    {!! $grid->renderPagination('top') !!}
+    @endif
+
     <div class="table-responsive table-wrapper {{ $grid->option('table_collapse') ? 'table-collapse' : '' }}">
         <div class="tables-container">
             <div class="table-wrap table-main" data-height="{{ $tableHeight }}">
@@ -142,5 +146,7 @@
 
     {!! $grid->renderFooter() !!}
 
-    {!! $grid->renderPagination() !!}
+    @if ($grid->allowBottomPagination())
+    {!! $grid->renderPagination('bottom') !!}
+    @endif
 </div>

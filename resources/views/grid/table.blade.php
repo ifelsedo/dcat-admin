@@ -1,9 +1,3 @@
-<style>
-    .border-bottom-dark {
-        border-bottom: 1px solid #dee2e6;
-    }
-</style>
-
 <div class="dcat-box">
 
     <div class="d-block pb-0">

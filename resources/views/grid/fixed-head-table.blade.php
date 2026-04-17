@@ -1,8 +1,4 @@
 <style>
-    .border-bottom-dark {
-        border-bottom: 1px solid #dee2e6;
-    }
-
     td.grid__actions__ {
         display: none !important;
     }
