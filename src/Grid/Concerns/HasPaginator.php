@@ -162,7 +162,7 @@ trait HasPaginator
     public function renderPagination($pos = 'bottom')
     {
         $this->paginationPos = $pos;
-        return view('admin::grid.table-pagination', ['grid' => $this]);
+        return view('admin::grid.table-pagination', ['grid' => $this, 'top' => $pos == 'top']);
     }
 
     /**

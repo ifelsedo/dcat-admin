@@ -17,13 +17,11 @@
 
     {!! $grid->renderHeader() !!}
 
+    @if ($grid->allowTopPagination())
+    {!! $grid->renderPagination('top') !!}
+    @endif
+    
     <div class="{!! $grid->formatTableParentClass() !!}">
-
-        @if ($grid->allowTopPagination())
-        <div class="border-bottom-dark">
-        {!! $grid->renderPagination('top') !!}
-        </div>
-        @endif
 
         <div class="table-scroll-container" style="max-height: 600px; overflow-y: auto; position: relative; ">
             <table class="{{ $grid->formatTableClass() }}" id="{{ $tableId }}" style="margin-bottom: 0;">
@@ -64,16 +62,13 @@
                 </tbody>
             </table>
         </div>
-
-        @if ($grid->allowBottomPagination())
-        {!! $grid->renderPagination('bottom') !!}
-        @endif
-
     </div>
 
     {!! $grid->renderFooter() !!}
 
-
+    @if ($grid->allowBottomPagination())
+    {!! $grid->renderPagination('bottom') !!}
+    @endif
 
 </div>
 

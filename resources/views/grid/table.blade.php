@@ -14,14 +14,11 @@
 
     {!! $grid->renderHeader() !!}
 
-    <div class="{!! $grid->formatTableParentClass() !!}">
-
-        @if ($grid->allowTopPagination())
-        <div class="border-bottom-dark">
-        {!! $grid->renderPagination('top') !!}
-        </div>
-        @endif
-
+    @if ($grid->allowTopPagination())
+    {!! $grid->renderPagination('top') !!}
+    @endif
+    
+    <div class="{!! $grid->formatTableParentClass() !!}" style="margin-top: 0;">
         <table class="{{ $grid->formatTableClass() }}" id="{{ $tableId }}" >
             <thead>
             @if ($headers = $grid->getVisibleComplexHeaders())
@@ -60,14 +57,14 @@
             </tbody>
         </table>
 
-        @if ($grid->allowBottomPagination())
-        {!! $grid->renderPagination('bottom') !!}
-        @endif
+        
 
     </div>
 
     {!! $grid->renderFooter() !!}
 
-
+    @if ($grid->allowBottomPagination())
+    {!! $grid->renderPagination('bottom') !!}
+    @endif
 
 </div>
