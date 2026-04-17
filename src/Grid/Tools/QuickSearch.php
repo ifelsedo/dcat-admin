@@ -141,7 +141,9 @@ class QuickSearch extends AbstractTool
         }
     }
 
-    $ipt.on('focus input', toggleBtn)
+    $ipt.on('focus', toggleBtn)
+        .on('mousemove', toggleBtn)
+        .on('mouseout', toggleBtn)
         .on('compositionstart', function(){
             inputting = true
         })
@@ -156,7 +158,7 @@ class QuickSearch extends AbstractTool
         })
     }
 
-    val !== '' && $ipt.val('').focus().val(val);
+    val !== '' && $ipt.val(' ').focus().val(val);
 
     $('.quick-search-clear').on('click', function () {
         $(this).parent().find('.quick-search-input').val('');
