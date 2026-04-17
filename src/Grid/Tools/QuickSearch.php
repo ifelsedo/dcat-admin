@@ -124,7 +124,6 @@ class QuickSearch extends AbstractTool
     var inputting = false,
         $ipt = $('input.quick-search-input'),
         val = $ipt.val(),
-        ignoreKeys = [16, 17, 18, 20, 35, 36, 37, 38, 39, 40, 45, 144],
         auto = $ipt.attr('auto');
 
     var submit = Dcat.helpers.debounce(function (input) {
@@ -133,31 +132,27 @@ class QuickSearch extends AbstractTool
 
     function toggleBtn() {
         var t = $(this),
-            btn = t.parent().parent().find('.quick-search-clear');
+            btn = t.parent().find('.quick-search-clear');
 
         if (t.val()) {
-            btn.css({color: '#333', cursor: 'pointer'});
+            btn.show();
         } else {
-            btn.css({color: '#fff', cursor: 'none'});
+            btn.hide();
         }
-        return false;
     }
 
-    $ipt.on('focus', toggleBtn)
-        .on('mousemove', toggleBtn)
-        .on('mouseout', toggleBtn)
+    $ipt.on('focus input', toggleBtn)
         .on('compositionstart', function(){
             inputting = true
         })
         .on('compositionend', function() {
-            inputting = false
+            inputting = false;
+            auto > 0 && submit(this);
         });
 
     if (auto > 0) {
-        $ipt.on('keyup', function (e) {
-            toggleBtn.apply(this);
-
-            ignoreKeys.indexOf(e.keyCode) == -1 && submit(this)
+        $ipt.on('input', function (e) {
+            submit(this);
         })
     }
 
