@@ -5,6 +5,12 @@
         margin-right: 0;
         margin-left: 0;
     }
+    
+    .show-content .card {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
 </style>
 
 {{--必须在静态资源加载前，用section先渲染 content--}}
